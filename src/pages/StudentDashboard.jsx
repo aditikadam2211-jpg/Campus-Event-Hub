@@ -1,4 +1,4 @@
-import QRCode from '../components/QRCode'
+
 import { Badge, EmptyState, LinkButton, StatCard } from '../components/ui'
 import { useHub } from '../context/useHub'
 import { clubName, formatDate } from '../utils/format'
@@ -30,7 +30,7 @@ export default function StudentDashboard() {
                 <p className="mt-1 text-sm text-slate-500">{clubName(clubs, event.clubId)} · {formatDate(event.startTime)} · {event.venue}</p>
                 <p className="mt-4 text-sm text-slate-600">Registered on {formatDate(registration.createdAt)}</p>
               </div>
-              <QRCode token={registration.qrToken} />
+          
             </article>
           ))
         )}

@@ -3,22 +3,22 @@ export const currentUser = {
   name: 'Aditi Kadam',
   email: 'aditi.kadam@campus.edu',
   role: 'student',
-  department: 'Computer Science',
+  department: 'Electronics and Computer Science',
   year: 'Third Year',
   interests: ['AI', 'Design', 'Entrepreneurship'],
 }
 
 export const users = [
   currentUser,
-  { id: 'coord-001', name: 'Riya Menon', email: 'riya@campus.edu', role: 'coordinator' },
+  { id: 'coord-001', name: 'Aaryan Wavare', email: 'aaryan@campus.edu', role: 'coordinator' },
   { id: 'admin-001', name: 'Campus Admin', email: 'admin@campus.edu', role: 'admin' },
 ]
 
 export const clubs = [
   { id: 'club-tech', name: 'Tech Society', coordinatorIds: ['coord-001'], color: 'indigo' },
   { id: 'club-culture', name: 'Cultural Council', coordinatorIds: ['coord-001'], color: 'rose' },
-  { id: 'club-business', name: 'E-Cell', coordinatorIds: ['coord-001'], color: 'emerald' },
-  { id: 'club-literary', name: 'Literary Circle', coordinatorIds: ['coord-001'], color: 'amber' },
+  { id: 'club-business', name: 'Business Club', coordinatorIds: ['coord-001'], color: 'emerald' },
+  { id: 'club-literary', name: 'Literature Club', coordinatorIds: ['coord-001'], color: 'amber' },
 ]
 
 export const events = [
@@ -27,7 +27,7 @@ export const events = [
     title: 'Campus AI Summit',
     clubId: 'club-tech',
     category: 'Technology',
-    venue: 'Auditorium A',
+    venue: 'Conclave',
     startTime: '2026-09-08T10:00:00+05:30',
     endTime: '2026-09-08T16:00:00+05:30',
     seatLimit: 180,
@@ -39,10 +39,10 @@ export const events = [
   },
   {
     id: 'event-music-night',
-    title: 'Acoustic Courtyard Night',
+    title: 'Music Night',
     clubId: 'club-culture',
     category: 'Culture',
-    venue: 'Central Courtyard',
+    venue: 'Conclave',
     startTime: '2026-09-05T18:30:00+05:30',
     endTime: '2026-09-05T21:00:00+05:30',
     seatLimit: 250,
@@ -52,21 +52,7 @@ export const events = [
     description: 'An open-air evening featuring student bands, poetry sets, and low-key food stalls under the courtyard lights.',
     highlights: ['Live bands', 'Open mic', 'Food stalls'],
   },
-  {
-    id: 'event-startup-lab',
-    title: 'Startup Ideation Lab',
-    clubId: 'club-business',
-    category: 'Entrepreneurship',
-    venue: 'Innovation Studio',
-    startTime: '2026-09-12T11:00:00+05:30',
-    endTime: '2026-09-12T14:30:00+05:30',
-    seatLimit: 80,
-    seatsFilled: 49,
-    status: 'pending',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
-    description: 'Small teams validate a campus startup idea, build a lean canvas, and pitch to alumni founders for feedback.',
-    highlights: ['Mentor circles', 'Lean canvas', 'Pitch practice'],
-  },
+  
   {
     id: 'event-debate-cup',
     title: 'Interdepartment Debate Cup',
@@ -82,21 +68,7 @@ export const events = [
     description: 'A structured debate tournament with preliminary rounds, finals, adjudicator notes, and audience voting.',
     highlights: ['Team rounds', 'Audience vote', 'Final trophy'],
   },
-  {
-    id: 'event-design-sprint',
-    title: 'UX Design Sprint',
-    clubId: 'club-tech',
-    category: 'Design',
-    venue: 'Lab 304',
-    startTime: '2026-09-21T09:30:00+05:30',
-    endTime: '2026-09-21T17:30:00+05:30',
-    seatLimit: 60,
-    seatsFilled: 36,
-    status: 'rejected',
-    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80',
-    description: 'A hands-on sprint to redesign high-friction campus services using research notes and rapid prototyping.',
-    highlights: ['Research synthesis', 'Wireframes', 'Prototype review'],
-  },
+  
 ]
 
 export const registrations = [
@@ -104,7 +76,6 @@ export const registrations = [
     id: 'reg-001',
     userId: 'user-001',
     eventId: 'event-ai-summit',
-    qrToken: 'CEH-user-001-event-ai-summit',
     status: 'registered',
     createdAt: '2026-08-26T12:10:00+05:30',
     checkedInAt: null,
@@ -113,7 +84,6 @@ export const registrations = [
     id: 'reg-002',
     userId: 'user-001',
     eventId: 'event-music-night',
-    qrToken: 'CEH-user-001-event-music-night',
     status: 'checked-in',
     createdAt: '2026-08-27T17:22:00+05:30',
     checkedInAt: '2026-09-05T18:41:00+05:30',
