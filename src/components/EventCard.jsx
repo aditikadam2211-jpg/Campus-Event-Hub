@@ -21,7 +21,7 @@ export default function EventCard({ event, clubs }) {
         </div>
         <div className="flex items-center justify-between gap-3">
           <span className="text-sm font-semibold text-slate-700">{seatsLeft} seats left</span>
-          <Link className="rounded-md bg-slate-950 px-3 py-2 text-sm font-semibold text-white hover:bg-slate-800" to={`/events/${event.id}`}>
+          <Link className="rounded-md bg-maroon px-3 py-2 text-sm font-semibold text-white hover:opacity-90" to={`/events/${event.id}`}>
             View
           </Link>
         </div>

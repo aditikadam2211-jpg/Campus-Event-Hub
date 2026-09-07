@@ -74,6 +74,15 @@ export default function ClubDashboard() {
           <Field label="Description">
             <textarea required className="min-h-24 rounded-md border border-slate-200 px-3 py-2 font-normal" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
           </Field>
+          <Field label="Event Image">
+            <input type="file" accept="image/*" className="block w-full text-sm text-slate-500 file:mr-4 file:rounded-md file:border-0 file:bg-slate-100 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-slate-700 hover:file:bg-slate-200" onChange={(e) => {
+              if (e.target.files && e.target.files[0]) {
+                const objectUrl = URL.createObjectURL(e.target.files[0])
+                setForm({ ...form, image: objectUrl })
+              }
+            }} />
+            {form.image && <img src={form.image} alt="Preview" className="mt-2 h-32 w-full rounded-md object-cover" />}
+          </Field>
           <Field label="Highlights, comma separated">
             <input className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={Array.isArray(form.highlights) ? form.highlights.join(', ') : form.highlights} onChange={(e) => setForm({ ...form, highlights: e.target.value })} />
           </Field>

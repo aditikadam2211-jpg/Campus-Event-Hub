@@ -24,13 +24,11 @@ export function statusClass(status) {
 
 export function metrics(events, registrations) {
   const approved = events.filter((event) => event.status === 'approved')
-  const checkedIn = registrations.filter((registration) => registration.status === 'checked-in')
   return {
     events: events.length,
     approved: approved.length,
     pending: events.filter((event) => event.status === 'pending').length,
     registrations: registrations.length,
-    checkIns: checkedIn.length,
     fillRate: approved.length
       ? Math.round((approved.reduce((sum, event) => sum + event.seatsFilled / event.seatLimit, 0) / approved.length) * 100)
       : 0,

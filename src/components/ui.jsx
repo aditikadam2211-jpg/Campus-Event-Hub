@@ -3,7 +3,7 @@ import { statusClass } from '../utils/format'
 
 export function Button({ children, variant = 'primary', className = '', ...props }) {
   const styles = {
-    primary: 'bg-slate-950 text-white hover:bg-slate-800',
+    primary: 'bg-maroon text-white hover:opacity-90',
     secondary: 'bg-white text-slate-800 border border-slate-200 hover:border-slate-300',
     danger: 'bg-rose-600 text-white hover:bg-rose-700',
     ghost: 'bg-transparent text-slate-600 hover:bg-slate-100',
@@ -17,7 +17,7 @@ export function Button({ children, variant = 'primary', className = '', ...props
 
 export function LinkButton({ children, to, variant = 'primary', className = '' }) {
   const styles = {
-    primary: 'bg-slate-950 text-white hover:bg-slate-800',
+    primary: 'bg-maroon text-white hover:opacity-90',
     secondary: 'bg-white text-slate-800 border border-slate-200 hover:border-slate-300',
   }
   return (

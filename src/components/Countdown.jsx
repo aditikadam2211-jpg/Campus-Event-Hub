@@ -21,7 +21,7 @@ export default function Countdown({ target }) {
   return (
     <div className="grid grid-cols-4 gap-2">
       {Object.entries(time).map(([label, value]) => (
-        <div className="rounded-md bg-slate-950 px-3 py-3 text-center text-white" key={label}>
+        <div className="rounded-md bg-maroon px-3 py-3 text-center text-white" key={label}>
           <div className="text-2xl font-bold tabular-nums">{String(value).padStart(2, '0')}</div>
           <div className="text-[11px] uppercase tracking-wide text-slate-300">{label}</div>
         </div>

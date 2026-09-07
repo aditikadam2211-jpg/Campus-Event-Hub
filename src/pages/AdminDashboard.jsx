@@ -9,11 +9,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="grid gap-6">
-      <section className="grid gap-4 md:grid-cols-5">
+      <section className="grid gap-4 md:grid-cols-4">
         <StatCard label="Events" value={stats.events} detail="All statuses" />
         <StatCard label="Pending" value={stats.pending} detail="Need review" />
         <StatCard label="Registrations" value={stats.registrations} detail="Live sign-ups" />
-        <StatCard label="Check-ins" value={stats.checkIns} detail="Venue attendance" />
         <StatCard label="Avg fill" value={`${stats.fillRate}%`} detail="Approved events" />
       </section>
       <section className="grid gap-4 lg:grid-cols-[1fr_1fr]">
@@ -36,7 +35,7 @@ export default function AdminDashboard() {
               <article className="flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-4" key={registration.id}>
                 <div>
                   <h3 className="font-bold text-slate-950">{event?.title}</h3>
-                  <p className="text-sm text-slate-500">{registration.qrToken}</p>
+                  
                 </div>
                 <Badge status={registration.status}>{registration.status}</Badge>
               </article>
@@ -55,7 +54,7 @@ export default function AdminDashboard() {
               {hub.registrations.map((registration) => (
                 <tr className="border-b border-slate-100" key={registration.id}>
                   <td className="py-3 font-semibold">{hub.events.find((event) => event.id === registration.eventId)?.title}</td>
-                  <td>{registration.qrToken}</td>
+                 
                   <td>{registration.status}</td>
                   <td>{formatDate(registration.createdAt)}</td>
                 </tr>

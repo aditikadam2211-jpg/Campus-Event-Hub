@@ -20,7 +20,7 @@ export default function StudentDashboard() {
       <section className="grid gap-4">
         <h1 className="text-2xl font-black text-slate-950">My Registrations</h1>
         {mine.length === 0 ? (
-          <EmptyState title="No registrations yet" body="Register for an approved event to see QR passes here." action={<LinkButton to="/">Browse Events</LinkButton>} />
+          <EmptyState title="No registrations yet" body="Register for an approved event to see your registrations here." action={<LinkButton to="/">Browse Events</LinkButton>} />
         ) : (
           mine.map(({ registration, event }) => (
             <article className="grid gap-5 rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:grid-cols-[1fr_auto]" key={registration.id}>

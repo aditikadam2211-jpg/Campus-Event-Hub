@@ -13,11 +13,6 @@ export function HubProvider({ children }) {
       saveEvent: async (event) => setState(await api.saveEvent(state, event)),
       deleteEvent: async (eventId) => setState(await api.deleteEvent(state, eventId)),
       updateEventStatus: async (eventId, status) => setState(await api.updateEventStatus(state, eventId, status)),
-      checkIn: async (token) => {
-        const { next, result } = await api.checkIn(state, token)
-        setState(next)
-        return result
-      },
       updateProfile: async (profile) => setState(await api.updateProfile(state, profile)),
     }),
     [state],
