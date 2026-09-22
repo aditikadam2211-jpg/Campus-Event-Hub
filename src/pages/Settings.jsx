@@ -9,7 +9,10 @@ export default function Settings() {
 
   async function submit(event) {
     event.preventDefault()
-    await hub.updateProfile({ ...profile, interests: String(profile.interests).split(',').map((item) => item.trim()).filter(Boolean) })
+    const interests = profile.interests 
+      ? String(profile.interests).split(',').map((item) => item.trim()).filter(Boolean)
+      : []
+    await hub.updateProfile({ ...profile, interests })
     setSaved(true)
     setTimeout(() => setSaved(false), 1600)
   }
@@ -26,7 +29,7 @@ export default function Settings() {
           <Field label="Department"><input className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={profile.department || ''} onChange={(e) => setProfile({ ...profile, department: e.target.value })} /></Field>
           <Field label="Year"><input className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={profile.year || ''} onChange={(e) => setProfile({ ...profile, year: e.target.value })} /></Field>
         </div>
-        <Field label="Interests"><input className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={Array.isArray(profile.interests) ? profile.interests.join(', ') : profile.interests} onChange={(e) => setProfile({ ...profile, interests: e.target.value })} /></Field>
+        <Field label="Interests"><input className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={profile.interests ? (Array.isArray(profile.interests) ? profile.interests.join(', ') : profile.interests) : ''} onChange={(e) => setProfile({ ...profile, interests: e.target.value })} /></Field>
         <Field label="Notification preference">
           <select className="rounded-md border border-slate-200 px-3 py-2 font-normal" value={profile.notifications || 'Email and in-app'} onChange={(e) => setProfile({ ...profile, notifications: e.target.value })}>
             <option>Email and in-app</option>

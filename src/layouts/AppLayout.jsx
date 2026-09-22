@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useHub } from '../context/useHub'
+import { Button } from '../components/ui'
 
 const baseLinks = [
   { to: '/', label: 'Events', roles: ['student', 'coordinator', 'admin'] },
@@ -10,10 +11,16 @@ const baseLinks = [
 ]
 
 export default function AppLayout() {
-  const { role, setRole } = useHub()
+  const { role, profile, logout } = useHub()
+  const navigate = useNavigate()
   
   const visibleLinks = baseLinks.filter((link) => link.roles.includes(role))
   
+  async function handleLogout() {
+    await logout()
+    navigate('/login')
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
@@ -32,11 +39,13 @@ export default function AppLayout() {
               </NavLink>
             ))}
           </nav>
-          <select className="rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700" value={role} onChange={(event) => setRole(event.target.value)}>
-            <option value="student">Student view</option>
-            <option value="coordinator">Club coordinator</option>
-            <option value="admin">Admin view</option>
-          </select>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <div className="text-sm font-bold text-slate-950">{profile?.name}</div>
+              <div className="text-xs text-slate-500 capitalize">{role}</div>
+            </div>
+            <Button variant="secondary" onClick={handleLogout}>Logout</Button>
+          </div>
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">

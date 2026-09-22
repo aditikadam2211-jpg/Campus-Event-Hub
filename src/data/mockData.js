@@ -2,6 +2,7 @@ export const currentUser = {
   id: 'user-001',
   name: 'Aditi Kadam',
   email: 'aditi.kadam@campus.edu',
+  password: 'password',
   role: 'student',
   department: 'Electronics and Computer Science',
   year: 'Third Year',
@@ -10,8 +11,8 @@ export const currentUser = {
 
 export const users = [
   currentUser,
-  { id: 'coord-001', name: 'Aaryan Wavare', email: 'aaryan@campus.edu', role: 'coordinator' },
-  { id: 'admin-001', name: 'Campus Admin', email: 'admin@campus.edu', role: 'admin' },
+  { id: 'coord-001', name: 'Aaryan Wavare', email: 'aaryan@campus.edu', password: 'password', role: 'coordinator' },
+  { id: 'admin-001', name: 'Campus Admin', email: 'admin@campus.edu', password: 'password', role: 'admin' },
 ]
 
 export const clubs = [

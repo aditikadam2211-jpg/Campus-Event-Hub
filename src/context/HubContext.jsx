@@ -4,11 +4,12 @@ import { HubContext } from './HubContextValue'
 
 export function HubProvider({ children }) {
   const [state, setState] = useState(getInitialHubState)
-  const [role, setRole] = useState('student')
 
   const actions = useMemo(
     () => ({
-      setRole,
+      login: async (credentials) => setState(await api.login(state, credentials)),
+      signup: async (payload) => setState(await api.signup(state, payload)),
+      logout: async () => setState(await api.logout(state)),
       registerForEvent: async (eventId) => setState(await api.registerForEvent(state, eventId)),
       saveEvent: async (event) => setState(await api.saveEvent(state, event)),
       deleteEvent: async (eventId) => setState(await api.deleteEvent(state, eventId)),
@@ -17,6 +18,8 @@ export function HubProvider({ children }) {
     }),
     [state],
   )
+
+  const role = state.profile?.role || null;
 
   return <HubContext.Provider value={{ ...state, role, ...actions }}>{children}</HubContext.Provider>
 }
