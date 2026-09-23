@@ -84,3 +84,16 @@ router.put('/profile', protect, async (req, res) => {
 });
 
 module.exports = router;
+router.get('/debug-admin', async (req, res) => {
+  try {
+    const user = await User.findOne({ email: 'admin@pillai.edu' }).select('email role password');
+    res.json({
+      found: !!user,
+      email: user?.email || null,
+      role: user?.role || null,
+      passwordHashExists: !!user?.password
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
