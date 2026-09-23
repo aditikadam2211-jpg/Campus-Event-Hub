@@ -8,10 +8,10 @@ const Registration = require('./models/Registration');
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI);
 
 const seedData = async () => {
   try {
+await mongoose.connect(process.env.MONGO_URI);
     await User.deleteMany();
     await Club.deleteMany();
     await Event.deleteMany();
