@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Backend
+server/.env
+server/node_modules/
+server/uploads/
+
+# Local MongoDB data
+mongodb_data/
